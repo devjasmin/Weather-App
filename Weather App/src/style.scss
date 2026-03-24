@@ -11,7 +11,8 @@ body {
   padding: 20px;
   border-radius: 5px;
   max-width: 400px;
-  height: auto;
+  width: 100%;
+  margin: 0 auto;
   background-color: #476de0;
 }
 
@@ -19,14 +20,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 
-.button {
-  padding: 10px 20px;
-  border: none;
+#weather-app__return-btn {
+  padding: 10px;
+  border: 2px solid #0f0101;
   border-radius: 5px;
-  background-color: #fff;
-  color: #0f0101;
+  background-color: #476de0;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#weather-app__favorite-btn {
+  padding: 10px;
+  border: 2px solid #0f0101;
+  border-radius: 5px;
+  background-color: #476de0;
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
 }
@@ -39,26 +51,26 @@ body {
 }
 
 .weather-app__place-name {
-  color: #0f0101;
+  color: #fff;
   font-size: 24px;
   padding: 10px;
   margin-top: 20px;
 }
 
 .weather-app__place-temperature {
-  color: #d2b3b3;
+  color: #0f0101;
   font-size: 48px;
   padding: 10px;
 }
 
-.weather-app__place-zustand {
-  color: #0f0101;
+.weather-app__place-condition {
+  color: #fff;
   font-size: 18px;
   padding: 10px;
 }
 
-.weather-app__place-max-min {
-  color: #0f0101;
+.weather-app__place-max-min-temperature {
+  color: #fff;
   font-size: 18px;
   margin: 5px;
   padding: 20px;
