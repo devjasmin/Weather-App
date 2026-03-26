@@ -1,5 +1,5 @@
 const API_ENDPOINT =
-  "https://api.weatherapi.com/v1/current.json?key=c5ef6424830d4eb193d182919261703&q=Neuenhof";
+  "https://api.weatherapi.com/v1/forecast.json?key=c5ef6424830d4eb193d182919261703&q=Neuenhof&lang=de&days=5";
 
 export async function fetchWeatherData() {
   try {
@@ -10,7 +10,7 @@ export async function fetchWeatherData() {
     }
 
     const data = await res.json();
-    console.log(data);
+    return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }
