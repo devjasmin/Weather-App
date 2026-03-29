@@ -4,28 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+    <title>Wetter App</title>
   </head>
   <body>
     <div id="weather-app">
           <div class="weather-app__header">
-        <button class="weather-app__return-btn">
-          Return
+        <button id="weather-app__return-btn">
+          <img src="/back-svgrepo-com.svg" alt="Zurück" width="25" height="25">
         </button>
-   <button class="weather-app__favorite-btn">
-          Favorite
+   <button id="weather-app__favorite-btn">
+          <img src="/favorite-star-achievement-svgrepo-com.svg" alt="Favoriten" width="25" height="25">
         </button>
       </div>
       <div class="weather-app__main">
-        <div class="weather-app__place-name"> Neuenhof </div>
-          <div class="weather-app__place-temperature"> 25° </div>
-            <div class="weather-app__place-zustand"> Sonnig </div>
-              <div class="weather-app__place-max-min-temperature"> H:28° / T:18° </div>
-
+        <div class="weather-app__place-name" id="place-name"></div>
+          <div class="weather-app__place-temperature" id="place-temperature"></div>
+            <div class="weather-app__place-condition" id="place-condition"></div>
+              <div class="weather-app__place-max-min-temperature" id="max-min-temperature"></div>
           </div>
-
         </div>
-
       </div>    
     <script type="module" src="/src/main.js"></script>
   </body>
