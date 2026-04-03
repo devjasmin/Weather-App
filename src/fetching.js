@@ -1,14 +1,17 @@
-const API_BASE_URL = "https://api.weatherapi.com/v1";
-const API_KEY = "c5ef6424830d4eb193d182919261703";
+const API_ENDPOINT =
+  "https://api.weatherapi.com/v1/forecast.json?key=c5ef6424830d4eb193d182919261703&q=Neuenhof&lang=de&days=5";
 
-export async function getCurrentWeather(location) {
-  const response = await fetch(
-    `${API_BASE_URL}/forecast.json?key=${API_KEY}&q=${location}&days=1&lang=de`,
-  );
+export async function fetchWeatherData() {
+  try {
+    const res = await fetch(API_ENDPOINT);
 
-  const weatherData = await response.json();
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
 
-  console.log(weatherData);
-
-  return weatherData;
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+  }
 }
