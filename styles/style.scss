@@ -1,6 +1,7 @@
-@use "./variables";
 @use "./mixins";
+@use "./variables";
 @use "detailView";
+@use "./loadingSpinner";
 
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -11,14 +12,14 @@
 
 body {
   @include mixins.largeScreens {
-    background-color: linear-gradient(
+    background: linear-gradient(
       0deg,
       variables.$elevation2 0%,
       variables.$background-color 50%
     );
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     min-height: 100vh;
   }
 }

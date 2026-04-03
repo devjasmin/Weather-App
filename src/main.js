@@ -4,9 +4,7 @@ import { formatTemperature } from "./utils.js";
 import "../styles/loadingSpinner.scss";
 import { showLoadingScreen, hideLoadingScreen } from "./loadingScreen.js";
 
-// getCurrentWeather("New York"); // nur wenn ich diesen Ort angezeigt haben will.
-
-async function init(location = "Neuenhof") {
+async function init(location = "Bern") {
   showLoadingScreen(location);
 
   // Mini-Pause, damit Browser rendern kann
