@@ -1,22 +1,47 @@
 import "/styles/style.scss";
-import { getCurrentWeather } from "./fetching.js";
+import { getCurrentWeather } from "./API.js";
+import { formatTemperature } from "./utils.js";
+import "../styles/loadingSpinner.scss";
+import { showLoadingScreen, hideLoadingScreen } from "./loadingScreen.js";
+
 // getCurrentWeather("New York"); // nur wenn ich diesen Ort angezeigt haben will.
 
-async function init() {
-  const data = getCurrentWeather("Neuenhof, Switzerland");
+async function init(location = "Neuenhof") {
+  showLoadingScreen(location);
+
+  // Mini-Pause, damit Browser rendern kann
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  const data = await getCurrentWeather(location);
+
+  document.getElementById("loading-screen").style.display = "none";
+  hideLoadingScreen();
 
   const placeNameElement = document.querySelector("#place-name");
-  placeNameElement.textContent = (await data).location.name;
+  placeNameElement.textContent = data.location.name;
 
   const placeTemperatureElement = document.querySelector("#place-temperature");
-  placeTemperatureElement.textContent = (await data).current.temp_c + "°";
+  placeTemperatureElement.textContent =
+    formatTemperature(data.current.temp_c) + "°";
 
   const placeConditionElement = document.querySelector("#place-condition");
-  placeConditionElement.textContent = (await data).current.condition.text;
+  placeConditionElement.textContent = data.current.condition.text;
   const maxMinTemperatureElement = document.querySelector(
     "#max-min-temperature",
   );
-  maxMinTemperatureElement.textContent = `H: ${(await data).forecast.forecastday[0].day.maxtemp_c}° / T: ${(await data).forecast.forecastday[0].day.mintemp_c}°`;
+  maxMinTemperatureElement.textContent = `H: ${formatTemperature(data.forecast.forecastday[0].day.maxtemp_c)}° / T: ${formatTemperature(data.forecast.forecastday[0].day.mintemp_c)}°`;
 }
 
 init();
+
+const btnback = document.getElementById("weather-app__return-btn");
+
+btnback.addEventListener("click", function () {
+  alert("ich gehe zurück!");
+});
+
+const btnfavorite = document.getElementById("weather-app__favorite-btn");
+
+btnfavorite.addEventListener("click", function () {
+  alert("Favorit hinzugefügt!");
+});
