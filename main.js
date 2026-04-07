@@ -3,7 +3,7 @@ import { getCurrentWeather } from "./fetching.js";
 // getCurrentWeather("New York"); // nur wenn ich diesen Ort angezeigt haben will.
 
 async function init() {
-  const data = getCurrentWeather("Neuenhof, Switzerland");
+  const data = getCurrentWeather("Bern, Switzerland");
 
   const placeNameElement = document.querySelector("#place-name");
   placeNameElement.textContent = (await data).location.name;
