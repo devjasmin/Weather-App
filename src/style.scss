@@ -1,77 +1,66 @@
-:root {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-}
+@use "./styles/variables";
+@use "./styles/loadingSpinner";
+@use "./styles/mixins";
+@use "./styles/detailView";
 
-body {
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
   margin: 0;
   padding: 0;
 }
 
+body {
+  @include mixins.largeScreens {
+    background-color: linear-gradient(
+      0deg,
+      variables.$elevation2 0%,
+      variables.$background-color 50%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+}
+
 #weather-app {
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #476de0;
+  background-color: variables.$background-color;
+  padding: 1rem;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+
+  @include mixins.largeScreens {
+    width: 400px;
+    height: 900px;
+    min-height: unset;
+    overflow: auto;
+    border-radius: variables.$border-radius;
+    box-shadow: variables.$box-shadow;
+  }
 }
 
 .weather-app__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  margin: 10px;
 }
 
 #weather-app__return-btn {
   padding: 10px;
-  border: 2px solid #0f0101;
-  border-radius: 5px;
-  background-color: #476de0;
-  color: white;
-  font-size: 16px;
+  border: none;
+  border-radius: variables.$border-radius;
+  background-color: variables.$background-color;
+  font-size: 2rem;
   cursor: pointer;
 }
 
 #weather-app__favorite-btn {
   padding: 10px;
-  border: 2px solid #0f0101;
-  border-radius: 5px;
-  background-color: #476de0;
-  color: #ffffff;
-  font-size: 16px;
+  border: none;
+  border-radius: variables.$border-radius;
+  background-color: variables.$background-color;
+  font-size: 2rem;
   cursor: pointer;
-}
-
-.weather-app__main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.weather-app__place-name {
-  color: #fff;
-  font-size: 24px;
-  padding: 10px;
-  margin-top: 20px;
-}
-
-.weather-app__place-temperature {
-  color: #0f0101;
-  font-size: 48px;
-  padding: 10px;
-}
-
-.weather-app__place-condition {
-  color: #fff;
-  font-size: 18px;
-  padding: 10px;
-}
-
-.weather-app__place-max-min-temperature {
-  color: #fff;
-  font-size: 18px;
-  margin: 5px;
-  padding: 20px;
 }

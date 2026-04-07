@@ -1,5 +1,3 @@
-@use "./variables";
-
 .weather-app__main {
   display: flex;
   flex-direction: column;
@@ -8,26 +6,26 @@
 }
 
 .weather-app__place-name {
-  color: variables.$text-color;
+  color: #fff;
   font-size: 2rem;
   margin: 10px;
 }
 
 .weather-app__place-temperature {
-  color: variables.$text-color;
+  color: #fff;
   font-size: 3.5rem;
   font-weight: 300;
   margin: 10px;
-  text-shadow: variables.$text-shadow;
+  text-shadow: 1px 1px 5px #000;
 }
 
 .weather-app__place-condition {
-  color: variables.$text-color;
+  color: #fff;
   font-size: 1rem;
   margin: 5px;
 }
 
 .weather-app__place-max-min-temperature {
-  color: variables.$text-color;
+  color: #fff;
   font-size: 1rem;
-}
+}/*# sourceMappingURL=detailView.css.map */
