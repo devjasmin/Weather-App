@@ -1,4 +1,4 @@
-import "./style.scss";
+import "./styles/style.scss";
 
 import { getCurrentWeather } from "./API.js";
 // getCurrentWeather("New York"); // nur wenn ich diesen Ort angezeigt haben will.
