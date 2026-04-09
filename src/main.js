@@ -24,8 +24,9 @@ async function init() {
 }
 
 showLoadingScreen();
-init();
+
 hideLoadingScreen();
+init();
 
 const Btnback = document.getElementById("weather-app__return-btn");
 Btnback.addEventListener("click", () => {
