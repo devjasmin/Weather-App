@@ -13,14 +13,14 @@ async function init(location) {
 
   const placeTemperatureElement = document.querySelector("#place-temperature");
   placeTemperatureElement.textContent =
-    (await formatTemperature(data.current.temp_c)) + "°";
+    formatTemperature(data.current.temp_c) + "°";
 
   const placeConditionElement = document.querySelector("#place-condition");
   placeConditionElement.textContent = await data.current.condition.text;
   const maxMinTemperatureElement = document.querySelector(
     "#max-min-temperature",
   );
-  maxMinTemperatureElement.textContent = `H: ${await formatTemperature(data.forecast.forecastday[0].day.maxtemp_c)}° / T: ${await formatTemperature(data.forecast.forecastday[0].day.mintemp_c)}°`;
+  maxMinTemperatureElement.textContent = `H: ${formatTemperature(data.forecast.forecastday[0].day.maxtemp_c)}° / T: ${formatTemperature(data.forecast.forecastday[0].day.mintemp_c)}°`;
 }
 
 formatTemperature();

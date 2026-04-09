@@ -12,7 +12,7 @@
 
 body {
   @include mixins.largeScreens {
-    background-color: linear-gradient(
+    background: linear-gradient(
       0deg,
       variables.$elevation2 0%,
       variables.$background-color 50%
