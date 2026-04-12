@@ -27,7 +27,12 @@
   margin: 5px;
 }
 
-.weather-app__place-max-min-temperature {
+.weather-app__place-max-temperature {
+  color: variables.$text-color;
+  font-size: 1rem;
+}
+
+.weather-app__place-min-temperature {
   color: variables.$text-color;
   font-size: 1rem;
 }

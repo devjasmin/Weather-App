@@ -1,12 +1,18 @@
-export function showLoadingScreen(location) {
-  const screen = document.getElementById("loading-screen");
-  const message = document.getElementById("loadingScreen__message");
-  const spinner = document.getElementById("loadingScreen__spinner");
-  screen.style.display = "flex";
-  message.textContent = `Die Wetterdaten werden für ${location} geladen...`;
-  spinner.style.display = "flex";
+import { rootElement } from "./main.js";
+
+export function renderLoadingScreen(message = "Lade...") {
+  rootElement.innerHTML = getLoadingHTML(message);
 }
 
-export function hideLoadingScreen() {
-  document.getElementById("loading-screen").style.display = "none";
+function getLoadingHTML(message) {
+  return `
+    <div class="loadingScreen">
+      <div class="loadingScreen__message">${message}</div>
+      <div class="loadingScreen__spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  `;
 }
