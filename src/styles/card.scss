@@ -1,0 +1,67 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  //  border: 2px solid black;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  padding: 1rem;
+  //border: 1px solid red;
+  gap: 10px;
+
+  &__day {
+    font-size: 1rem;
+    gap: 0.5px;
+
+    &__condition {
+      font-size: 1rem;
+    }
+  }
+}
+
+.card__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 1rem;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding: 10px;
+    gap: 10px;
+    padding: 1rem;
+    border: 1px solid blue;
+    border-radius: 5px;
+  }
+
+  &__hour {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__temp {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}

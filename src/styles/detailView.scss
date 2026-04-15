@@ -1,5 +1,26 @@
 @use "variables";
 
+.weather-app__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.weather-app__return-btn {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.weather-app__favorite-btn {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .weather-app__main {
   display: flex;
   flex-direction: column;
@@ -25,6 +46,12 @@
   color: variables.$text-color;
   font-size: 1rem;
   margin: 5px;
+}
+
+.weather-app__temperature-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .weather-app__place-max-temperature {

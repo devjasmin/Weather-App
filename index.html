@@ -8,11 +8,21 @@
   </head>
   <body>
     <div id="weather-app">
-      <buttons>
-        <button id="weather-app__return-btn">Zurück</button>
-        <button id="weather-app__favorite-btn">Favorit</button>
-      </buttons>
+      <div class="card">
+        <div class="card__header">
+          <p class="card__header__day">Heute Sonnig.</p>
+          <p class="card__header__condition">Wind bis zu 16km/h</p>
+        </div>
+        <div class="card__main">
+          <div class="card__main__container">
+          <p class="card__main__hour">Jetzt / 13 Uhr</p>
+          <div class="card__main__icon">
+          <img src="./gut-svgrepo-com.svg" alt="Sonne Icon"<p/>
+          <p class="card__main__temp">20°</p> </div>         
+        </div>
+      </div>
     </div>
+
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
