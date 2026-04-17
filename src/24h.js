@@ -1,17 +1,26 @@
 import { formatTemperature } from "./utils";
 import { getForecastWeather } from "./API";
 
-// export function loadingHours(day, conditionIcon, temp) {
-//   forecastDay[0];
-//   forecastDay.forecast.condition.icon;
-//   forecastDay.temp_c;
-// }
+export function getConditions(day, conditionText, wind_kph) {
+  //console.log(forecastDay);
+  const conditions = forecast.forecastDay.day;
 
-// export function loadingConditions(day, conditionText, wind_kph) {
-//   forecastDay.day;
-//   forecastDay.conditionText;
-//   forecastDay.wind_kph;
-// }
+  return conditions
+    .map((conditions) => {
+      const day = forecastDay.day;
+      const conditionsText = forecastDay.conditionText;
+      const wind = forecastDay.wind_kph;
+
+      return `
+            <div class="today-forecast">
+              <p class="today-forecast__condition">${day}${conditionText}${maxwind_kph}
+                </div>
+                </div>
+                </div>
+              `;
+    })
+    .join("");
+}
 
 // function renderCondition (conditionData){
 //   const {day,conditionText, wind_kph} = conditionData;
@@ -22,38 +31,30 @@ import { getForecastWeather } from "./API";
 //   const currentHour = forecast.forecastDay.hour[0];
 // }
 
-// function getConditionHMTL(day, conditionText, conditionmaxwind_kph) {
-//   return `
-//        <div class="today-forecast">
-//         <p class="today-forecast__condition">${day}${conditionText}${conditionmaxwind_kph}
-//           Heute Sonnig. Wind bis zu 16km/h
-//         </p>
-//       </div>
-//     `;
-// }
+export function getHourHTML(forecastDay) {
+  //console.log(forecastDay);
+  const hours = forecastDay[0].hour;
 
-function getHourHTML(hour, icon, temp) {
-  const hours = forecastDay[0].hours;
+  return hours
+    .map((hour) => {
+      const time = hour.time;
+      const icon = hour.condition.icon;
+      const temp = hour.temp_c;
 
-  hours.forEach((hour) => {
-    const time = hour.time;
-    const icon = hour.condition.icon;
-    const temp = hour.temp_c;
-
-    console.log(time, temp, icon);
-  });
-  return `   
-           <div class="today-forecast__hour">
-        <div class="today-forecast__hour__container">
-          <p class="today-forecast__hour__hour">${hour}Jetzt</p>
-          <div class="today-forecast__hour__icon">${icon}
-            <img src="./gut-svgrepo-com.svg" alt="Sonne" />
-            <p class="today-forecast__hour__temp">${temp}20°</p>
-          </div>
-        </div>
-      </div>   
-    `;
+      return `
+            <div class="today-forecast__hour">
+              <div class="today-forecast__hour__container">
+                <p class="today-forecast__hour__time">${time}</p>
+                  <div class="today-forecast__hour__icon">
+                    <img src=${icon} />
+                      <p class="today-forecast__hour__temp">${temp}°</p>
+                </div>
+                </div>
+                </div>
+              `;
+    })
+    .join("");
 }
 
-getConditionHMTL();
-getHourHTML();
+//getHourHTML();
+//getConditionHMTL();
