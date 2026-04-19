@@ -2,8 +2,7 @@ import { rootElement } from "./main.js";
 import { getForecastWeather } from "./API.js";
 import { formatTemperature } from "./utils.js";
 import { renderLoadingScreen } from "./loadingScreen.js";
-import { getHourHTML } from "./24h.js";
-import { getConditions } from "./24h.js";
+import { getDayConditions, getHourHTML } from "./24h.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
@@ -16,7 +15,6 @@ export async function loadDetailView(cityName) {
 function renderDetailView(weatherData) {
   const { location, current, forecast } = weatherData;
   const currentDay = forecast.forecastday[0];
-  //console.log(forecast);
 
   rootElement.innerHTML =
     getHeaderHTML(
@@ -25,7 +23,9 @@ function renderDetailView(weatherData) {
       current.condition.text,
       "H: " + formatTemperature(currentDay.day.maxtemp_c) + "°",
       "T: " + formatTemperature(currentDay.day.mintemp_c) + "°",
-    ) + getHourHTML(forecast.forecastday);
+    ) +
+    getDayConditions(forecast.forecastday) +
+    getHourHTML(forecast.forecastday);
 }
 
 function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
@@ -45,9 +45,8 @@ function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
         </div>      
     `;
 }
-
+getDayConditions();
 getHeaderHTML();
-//getConditions();
 
 // const Btnback = document.getElementById("weather-app__return-btn");
 // Btnback.addEventListener("click", () => {

@@ -1,34 +1,32 @@
 @use "/src/styles/variables";
 
-.today-forecast {
+.today-forecast__condition {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  // border: 2px solid black;
-
-  &__condition {
-    font-size: 1rem;
-  }
+  justify-content: left;
+  align-items: left;
+  margin-top: 2rem;
+  padding: 10px;
 }
 
 .today-forecast__hour {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  overflow-y: hidden;
+  //scrollbar-width: none;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  //border: 2px solid red;
 
   &__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    border: 1px solid blue;
+    padding: 15px;
     border-radius: variables.$border-radius;
+    gap: 1rem;
   }
 
   &__hour {

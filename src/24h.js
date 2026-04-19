@@ -1,60 +1,43 @@
 import { formatTemperature } from "./utils";
 import { getForecastWeather } from "./API";
 
-export function getConditions(day, conditionText, wind_kph) {
-  //console.log(forecastDay);
-  const conditions = forecast.forecastDay.day;
+export function getDayConditions(forecastDay) {
+  if (!forecastDay) return "";
 
-  return conditions
-    .map((conditions) => {
-      const day = forecastDay.day;
-      const conditionsText = forecastDay.conditionText;
-      const wind = forecastDay.wind_kph;
+  const day = forecastDay[0].day;
 
-      return `
-            <div class="today-forecast">
-              <p class="today-forecast__condition">${day}${conditionText}${maxwind_kph}
-                </div>
-                </div>
-                </div>
+  return `
+            <p class="today-forecast__condition">Heute ${day.condition.text}. Wind ${day.maxwind_kph} Km/h.
+                </p>           
               `;
-    })
-    .join("");
 }
 
-// function renderCondition (conditionData){
-//   const {day,conditionText, wind_kph} = conditionData;
-// }
-
-// function renderHours(hourData) {
-//   const { hour, icon, temp_c } = hourData;
-//   const currentHour = forecast.forecastDay.hour[0];
-// }
-
 export function getHourHTML(forecastDay) {
-  //console.log(forecastDay);
   const hours = forecastDay[0].hour;
+  const now = new Date().getHours();
 
-  return hours
-    .map((hour) => {
-      const time = hour.time;
-      const icon = hour.condition.icon;
-      const temp = hour.temp_c;
+  return ` 
+  <div class="today-forecast__hour">
+    ${hours
+      .map((hour) => {
+        const hourValue = new Date(hour.time).getHours();
 
-      return `
-            <div class="today-forecast__hour">
+        const timeLabel = hourValue === now ? "Jetzt" : `${hourValue} Uhr`;
+
+        const icon = hour.condition.icon;
+        const temp = hour.temp_c;
+
+        return `
               <div class="today-forecast__hour__container">
-                <p class="today-forecast__hour__time">${time}</p>
+                <p class="today-forecast__hour__time">${timeLabel}</p>
                   <div class="today-forecast__hour__icon">
                     <img src=${icon} />
                       <p class="today-forecast__hour__temp">${temp}°</p>
                 </div>
-                </div>
-                </div>
-              `;
-    })
-    .join("");
+               </div>             
+      `;
+      })
+      .join("")}
+  </div>
+`;
 }
-
-//getHourHTML();
-//getConditionHMTL();
