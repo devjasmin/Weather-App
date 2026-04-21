@@ -6,18 +6,20 @@
   padding: 10px;
 }
 .weather-app__return-btn {
-  font-size: 1rem;
-  background: none;
+  padding: 10px;
   border: none;
+  border-radius: variables.$border-radius;
+  background-color: variables.$background-color;
+  font-size: 1rem;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
 }
 
 .weather-app__favorite-btn {
-  font-size: 1rem;
-  background: none;
+  padding: 10px;
   border: none;
+  border-radius: variables.$border-radius;
+  background-color: variables.$background-color;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -26,6 +28,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .weather-app__place-name {
