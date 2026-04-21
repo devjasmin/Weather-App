@@ -7,32 +7,45 @@ export function getDayConditions(forecastDay) {
   const day = forecastDay[0].day;
 
   return `
-            <p class="today-forecast__condition">Heute ${day.condition.text}. Wind ${day.maxwind_kph} Km/h.
+            <p class="today-forecast__condition">Heute ${day.condition.text}. Wind bis zu ${day.maxwind_kph} Km/h.
                 </p>           
               `;
 }
 
 export function getHourHTML(forecastDay) {
-  const hours = forecastDay[0].hour;
-  const now = new Date().getHours();
+  const todaysHours = forecastDay[0].hour;
+  const tomorrowsHours = forecastDay[1].hour;
+
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  const upcomingToday = todaysHours.filter((hour) => {
+    const hourValue = parseInt(hour.time.split(" ")[1].split(":")[0]);
+    return hour.time_epoch * 1000 >= currentHour;
+  });
+
+  const nextHours = tomorrowsHours.slice(0, 8);
+
+  const allHours = [...upcomingToday, ...nextHours];
 
   return ` 
   <div class="today-forecast__hour">
-    ${hours
-      .map((hour) => {
-        const hourValue = new Date(hour.time).getHours();
+    ${allHours
+      .map((hour, index) => {
+        const hourValue = parseInt(hour.time.split(" ")[1].split(":")[0]);
+        //console.log(hourValue);
 
-        const timeLabel = hourValue === now ? "Jetzt" : `${hourValue} Uhr`;
+        const timeLabel = index === 0 ? "Jetzt" : `${hourValue} Uhr`;
 
         const icon = hour.condition.icon;
         const temp = hour.temp_c;
 
         return `
-              <div class="today-forecast__hour__container">
-                <p class="today-forecast__hour__time">${timeLabel}</p>
-                  <div class="today-forecast__hour__icon">
+              <div class="today-forecast__hour_container">
+                <p class="today-forecast__hour_time">${timeLabel}</p>
+                  <div class="today-forecast__hour_icon">
                     <img src=${icon} />
-                      <p class="today-forecast__hour__temp">${temp}°</p>
+                      <p class="today-forecast__hour_temp">${formatTemperature(temp)}°</p>
                 </div>
                </div>             
       `;
