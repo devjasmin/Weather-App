@@ -21,10 +21,10 @@ export function getHourHTML(forecastDay) {
 
   const upcomingToday = todaysHours.filter((hour) => {
     const hourValue = parseInt(hour.time.split(" ")[1].split(":")[0]);
-    return hour.time_epoch * 1000 >= currentHour;
+    return hour.time_epoch * 1000 >= Date.now();
   });
 
-  const nextHours = tomorrowsHours.slice(0, 8);
+  const nextHours = tomorrowsHours.slice(0, 12);
 
   const allHours = [...upcomingToday, ...nextHours];
 
@@ -33,7 +33,6 @@ export function getHourHTML(forecastDay) {
     ${allHours
       .map((hour, index) => {
         const hourValue = parseInt(hour.time.split(" ")[1].split(":")[0]);
-        //console.log(hourValue);
 
         const timeLabel = index === 0 ? "Jetzt" : `${hourValue} Uhr`;
 
