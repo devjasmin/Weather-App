@@ -2,10 +2,10 @@
 @use "/src/styles/mixins";
 @use "/src/styles/loadingSpinner";
 @use "/src/styles/today-forecast";
+@use "/src/styles/forecast-days";
 @use "/src/styles/detailView";
 
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -47,21 +47,3 @@ body {
   justify-content: space-between;
   margin: 10px;
 }
-
-// #weather-app__return-btn {
-//   padding: 10px;
-//   border: none;
-//   border-radius: variables.$border-radius;
-//   background-color: variables.$background-color;
-//   font-size: 2rem;
-//   cursor: pointer;
-// }
-
-// #weather-app__favorite-btn {
-//   padding: 10px;
-//   border: none;
-//   border-radius: variables.$border-radius;
-//   background-color: variables.$background-color;
-//   font-size: 2rem;
-//   cursor: pointer;
-// }
