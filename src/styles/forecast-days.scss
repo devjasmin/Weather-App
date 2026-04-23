@@ -4,33 +4,29 @@
   background-color: variables.$background-color;
   padding: 1rem;
   margin-top: 1rem;
-  border: 1px solid white;
   border-radius: variables.$border-radius;
 }
 
 .forecast-days__title {
-  background-color: variables.$background-color;
-  color: #000;
+  color: variables.$text-color;
   margin-top: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 1rem;
+  padding: 10px;
 }
 
-.forecast-days__heute {
-  background-color: variables.$background-color;
+.forecast-days__item {
   color: #fff;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-.forecast-days__morgen {
-  background-color: variables.$background-color;
-  color: #fff;
-  padding: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
 
-.forecast-days__übermorgen {
-  background-color: variables.$background-color;
-  color: #fff;
-  padding: 10px;
+  p.forecast-days__label-day {
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
 }
