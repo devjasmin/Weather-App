@@ -4,18 +4,31 @@ import { getForecastWeather } from "./API";
 export function getDays(forecastday) {
   if (!forecastday) return "";
 
-  return `
-            <div class="forecast-days">
-              <div class="forecast-days__title">
-                       Vorhersage für die nächsten 3 Tage:                      
-                       </div>
+  const items = forecastday
+    .map((days, index) => {
+      const label =
+        index === 0
+          ? "Heute"
+          : index === 1
+            ? "Mittwoch"
+            : new Date(days.date).toLocaleDateString("de-DE", {
+                weekday: "long",
+              });
 
-              <p class="forecast-days__heute">Heute <img src="https:${forecastday.day.condition.icon}" alt="Bild">. H: ${forecastday.day.maxtemp_c} T: ${forecastday.day.mintemp_c}. Wind bis zu ${forecastday.day.maxwind_kph} Km/h.
-                  </p>
-                   <p class="forecast-days__morgen">Mittwoch <img src="https:${forecastday.day.condition.icon}" alt= "Bild">. H: ${forecastday.day.maxtemp_c} T: ${forecastday.day.mintemp_c}. Wind bis zu ${forecastday.day.maxwind_kph} Km/h.
-                  </p>
-                   <p class="forecast-days__übermorgen">Donnerstag <img src="https:${forecastday.day.condition.icon}" alt= "Bild">. H: ${forecastday.day.maxtemp_c} T: ${forecastday.day.mintemp_c}. Wind bis zu ${forecastday.day.maxwind_kph} Km/h.
+      return `       
+
+                <div class= forecast-days__item>
+               
+                <p class="forecast-days__label-day">${label}
+                <img src="https:${days.day.condition.icon}" alt="Bild"> H: ${days.day.maxtemp_c} T: ${days.day.mintemp_c}. Wind bis zu ${days.day.maxwind_kph} Km/h.
                   </p>
                   </div>
+                  </div>
                 `;
+    })
+    .join("");
+
+  return items;
 }
+
+getDays();

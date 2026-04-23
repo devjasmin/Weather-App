@@ -3,6 +3,7 @@ import { getForecastWeather } from "./API.js";
 import { formatTemperature } from "./utils.js";
 import { renderLoadingScreen } from "./loadingScreen.js";
 import { getDayConditions, getHourHTML } from "./24h.js";
+import { getDays } from "./3days.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
@@ -27,6 +28,9 @@ function renderDetailView(weatherData) {
     `<div class = "glass-background">
     ${getDayConditions(forecast.forecastday)}
     ${getHourHTML(forecast.forecastday)}
+    </div>` +
+    `<div class = forecast-days">
+    ${getDays(forecast.forecastday)}
     </div>`;
 }
 
