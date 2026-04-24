@@ -3,7 +3,7 @@
 .forecast-days {
   background-color: variables.$background-color;
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 20px;
   border-radius: variables.$border-radius;
   border: 1px solid black;
 }
@@ -20,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
 
   p.forecast-days__label-day {
     color: #fff;
@@ -28,5 +29,6 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    height: auto;
   }
 }
