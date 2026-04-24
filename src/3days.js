@@ -31,8 +31,7 @@ export function getDays(forecastday) {
         <div class = forecast-days__title>
               Vorhersage für 3 Tage:
               </div>
-
-      </div>
+     
 
       ${items}
 `;
