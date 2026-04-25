@@ -34,7 +34,7 @@ function renderDetailView(weatherData) {
     ${getDays(forecast.forecastday)}
     </div>` +
     `<div class ="mini-stats">
-    ${getMiniStats(forecast.forecastday)}`;
+    ${getMiniStats(forecast.forecastday, current)}`;
 }
 
 function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
