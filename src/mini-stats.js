@@ -11,12 +11,36 @@ export function getMiniStats(forecastday, current) {
   const precipitation = forecastday[0].day.totalprecip_mm;
   const uv = forecastday[0].day.uv;
 
-  return `  
-              <div class ="mini-stats__avghumidity">Feuchtigkeit: ${avghumidity}%</div>
-              <div class ="mini-stats__feelslike">Gefühlt: ${formatTemperature(feelslike)}°</div>
-              <div class ="mini-stats__moonset">Sonnenaufgang: ${moonset}</div>
-               <div class ="mini-stats__sunset">Sonnenuntergang: ${sunset}</div>
-               <div class ="mini-stats__precipitation">Niederschlag: ${precipitation} mm</div>
-               <div class ="mini-stats__uv">UV-Index: ${uv}</div>
+  return ` 
+               <div class="mini-stats__heading">
+                Feuchtigkeit
+                <p class="mini-stats__value">${avghumidity} %</p>
+              </div>
+
+              <div class ="mini-stats__heading">
+              Gefühlt
+              <p class ="mini-stats__value"> ${formatTemperature(feelslike)}°</p>
+              </div>
+
+              <div class ="mini-stats__heading">
+              Sonnenaufgang
+              <p class ="mini-stats__value"> ${moonset}</p>
+              </div>
+
+               <div class ="mini-stats__heading">
+               Sonnenuntergang 
+               <p class ="mini-stats__value">${sunset}</p>
+               </div>
+
+               <div class ="mini-stats__heading">
+               Niederschlag
+               <p class ="mini-stats__value">${precipitation} mm</p>
+               </div>
+               
+               <div class ="mini-stats__heading">
+               UV-Index 
+               <p class ="mini-stats__value">${uv}</p>
+               </div>
+           
              `;
 }
