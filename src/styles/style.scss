@@ -27,6 +27,13 @@ body {
 }
 
 #weather-app {
+  .glass-background {
+    backdrop-filter: blur(10px);
+    //background: rgba (255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-radius: variables.$border-radius;
+    padding: 20px;
+  }
   background-color: variables.$background-color;
   padding: 1rem;
   min-height: 100vh;
@@ -47,4 +54,12 @@ body {
   align-items: center;
   justify-content: space-between;
   margin: 10px;
+}
+
+.background-day {
+  background: linear-gradient(to top, #87ceeb, #ffffff);
+}
+
+.background-night {
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
 }

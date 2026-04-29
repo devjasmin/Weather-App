@@ -19,7 +19,7 @@ export function getDays(forecastday) {
       return `      
               <div class="forecast-days__item"> 
       <span class="forecast-days__label-day"> ${label}</span>
-
+      
       <img class="forecast-days__icon" src="https:${days.day.condition.icon}" alt="Bild">
 
       <span class="forecast-days__max_temp">

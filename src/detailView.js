@@ -6,6 +6,7 @@ import { getDayConditions, getHourHTML } from "./24h.js";
 import { getDays } from "./3days.js";
 import { getMiniStats } from "./mini-stats.js";
 import { formatClock } from "./utils.js";
+import { setBackground } from "./utils.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
