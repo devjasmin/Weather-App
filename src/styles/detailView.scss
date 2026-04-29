@@ -54,7 +54,8 @@
 .weather-app__temperature-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .weather-app__place-max-temperature {

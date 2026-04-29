@@ -6,14 +6,15 @@ export function getDays(forecastday) {
 
   const items = forecastday
     .map((days, index) => {
+      const labels = ["Heute"];
+
       const label =
-        index === 0
-          ? "Heute"
-          : index === 1
-            ? "Morgen"
-            : new Date(days.date).toLocaleDateString("de-DE", {
-                weekday: "long",
-              });
+        labels[index] ??
+        new Date(days.date)
+          .toLocaleDateString("de-DE", {
+            weekday: "short",
+          })
+          .toUpperCase();
 
       return `      
               <div class="forecast-days__item"> 
@@ -26,7 +27,8 @@ export function getDays(forecastday) {
         </span>
 
         <span class="forecast-days__min_temp">
-        T: ${formatTemperature(days.day.mintemp_c)}° </span>
+        T: ${formatTemperature(days.day.mintemp_c)}° 
+        </span>
       
         <span class="forecast-days__wind">
             Wind: ${days.day.maxwind_kph} km/h

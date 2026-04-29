@@ -6,11 +6,12 @@
   margin-top: 20px;
   border-radius: variables.$border-radius;
   border: 1px solid black;
+  box-shadow: variables.$box-shadow;
 }
 
 .forecast-days__title {
   color: variables.$text-color;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: variables.$border-bottom;
   padding: 10px;
 }
 
@@ -19,25 +20,31 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: variables.$border-bottom;
   padding: 10px;
   flex-wrap: nowrap;
-}
 
-p.forecast-days__label-day {
-  color: #fff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px;
-}
+  &:last-child {
+    padding: 0;
+    border: none;
+  }
 
-.forecast-days__icon {
-  width: 40px;
-}
+  p.forecast-days__label-day {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    width: 2rem;
+  }
 
-.forecast-days__max_temp,
-.forecast-days__min_temp,
-.forecast-days__wind {
-  white-space: nowrap;
+  .forecast-days__icon {
+    width: 2.5rem;
+  }
+
+  .forecast-days__max_temp,
+  .forecast-days__min_temp,
+  .forecast-days__wind {
+    white-space: nowrap;
+  }
 }

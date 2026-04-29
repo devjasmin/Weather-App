@@ -24,13 +24,14 @@ export function getHourHTML(forecastDay) {
     return hour.time_epoch * 1000 >= Date.now();
   });
 
-  const nextHours = tomorrowsHours.slice(0, 12);
+  const nextHours = tomorrowsHours.slice(0, 14);
 
   const allHours = [...upcomingToday, ...nextHours];
 
   return ` 
   <div class="today-forecast__hour">
     ${allHours
+      .filter((el) => el !== undefined)
       .map((hour, index) => {
         const hourValue = parseInt(hour.time.split(" ")[1].split(":")[0]);
 
