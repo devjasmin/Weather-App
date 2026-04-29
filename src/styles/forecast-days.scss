@@ -19,32 +19,31 @@
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
   border-bottom: variables.$border-bottom;
   padding: 10px;
   flex-wrap: nowrap;
 
   &:last-child {
-    padding: 0;
     border: none;
   }
 
   p.forecast-days__label-day {
     color: #fff;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 10px;
-    width: 2rem;
+    gap: 15px;
   }
 
   .forecast-days__icon {
-    width: 2.5rem;
+    min-width: 30px;
   }
-
-  .forecast-days__max_temp,
-  .forecast-days__min_temp,
+  .forecast-days__max_temp {
+    min-width: 50px;
+  }
+  .forecast-days__min_temp {
+    min-width: 50px;
+  }
   .forecast-days__wind {
-    white-space: nowrap;
+    min-width: 60px;
   }
 }
