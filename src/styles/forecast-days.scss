@@ -19,33 +19,32 @@
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
   border-bottom: variables.$border-bottom;
   padding: 10px;
-  gap: 10px;
+  gap: 1rem;
 
   &:last-child {
     border: none;
   }
 
-  p.forecast-days__label-day {
-    color: #fff;
+  .forecast-days__label-day {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
+    width: 2rem;
   }
 
   .forecast-days__icon {
     width: 35px;
     height: 35px;
-    object-fit: contain;
   }
-  .forecast-days__max_temp,
-  .forecast-days__min_temp {
-    min-width: 60px;
-  }
+  // .forecast-days__max_temp,
+  // .forecast-days__min_temp {
+  //   justify-content: center;
+  // }
 
-  .forecast-days__wind {
-    margin-left: auto;
-  }
+  // .forecast-days__wind {
+  //   margin-left: auto;
+  // }
 }
