@@ -1,10 +1,18 @@
 @use "variables";
 
-.mini-stats {
+.glass-background {
+  backdrop-filter: blur(10px);
+  background: rgba (255, 255, 255, 0.2);
+  border: 1px solid white;
   border-radius: variables.$border-radius;
-  background-color: variables.$background-color;
-  margin-top: 10px;
   padding: 20px;
+}
+
+.mini-stats {
+  //background-color: variables.$background-color;
+  border-radius: variables.$border-radius;
+  margin-top: 20px;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
@@ -12,10 +20,10 @@
 }
 
 .mini-stats__heading {
-  border: 1px solid blue;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   border-radius: variables.$border-radius;
@@ -24,10 +32,6 @@
 }
 
 .mini-stats__value {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
   margin-top: 1rem;
   font-size: 1.5rem;
 }

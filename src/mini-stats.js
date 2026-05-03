@@ -13,35 +13,36 @@ export function getMiniStats(forecastday, current) {
   const uv = forecastday[0].day.uv;
 
   return ` 
-               <div class="mini-stats__heading">
+                <div class="mini-stats__heading">
                 Feuchtigkeit
-                <p class="mini-stats__value">${avghumidity}%</p>
-              </div>
+                <p class="mini-stats__value"> ${avghumidity}%</p>
+                </div>
 
               <div class ="mini-stats__heading">
-              Gefühlt
-              <p class ="mini-stats__value"> ${formatTemperature(feelslike)}°</p>
-              </div>
+                Gefühlt
+                <p class ="mini-stats__value"> ${formatTemperature(feelslike)}°</p>
+                </div>
 
               <div class ="mini-stats__heading">
-              Sonnenaufgang
-              <p class ="mini-stats__value"> ${formatClock(sunrise)} Uhr</p>              
-              </div>
+                Sonnenaufgang
+                <p class ="mini-stats__value"> ${formatClock(sunrise)} Uhr</p>              
+                </div>
              
                <div class ="mini-stats__heading">
-               Sonnenuntergang 
-               <p class ="mini-stats__value">${formatClock(sunset)} Uhr</p>
-               </div>
+                Sonnenuntergang 
+                <p class ="mini-stats__value"> ${formatClock(sunset)} Uhr</p>
+                </div>
 
                <div class ="mini-stats__heading">
-               Niederschlag
-               <p class ="mini-stats__value">${precipitation} mm</p>
-               </div>
+                Niederschlag
+                <p class ="mini-stats__value"> ${precipitation} mm</p>
+                </div>
                
                <div class ="mini-stats__heading">
-               UV-Index 
-               <p class ="mini-stats__value">${uv}</p>
-               </div>
+                UV-Index 
+                <p class ="mini-stats__value"> ${uv}</p>
+                </div>
+               
            
              `;
 }

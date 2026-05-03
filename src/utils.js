@@ -7,17 +7,15 @@ export function formatClock(clock) {
 }
 
 export function setBackground(isDay) {
+  const code = wetterData.current.condition.code;
+  const isNight = wetterData.current.is_day === 0;
+
   const el = document.getElementById("weather-app");
+  const imagePath = getConditionImagePath(code, isNight);
 
-  el.classList.remove("background-day", "background-night");
-
-  if (isDay) {
-    el.classList.add("background-day");
+  if (imagePath) {
+    el.style.backgroundImage = `url(${imagePath})`;
   } else {
-    el.classList.add("background-night");
+    el.style.backgroundImage = `url(${imagePath})`;
   }
 }
-
-// export function setBackground(isNight) {
-//   const el = document.getElementById("weather-app");
-// }
