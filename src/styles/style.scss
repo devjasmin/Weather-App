@@ -27,10 +27,12 @@ body {
 }
 
 #weather-app {
-  background-size: cover;
-  background-position: center;
-  backdrop-filter: blur(10px);
-  //background: url("/image_day/sunny.jpg") no-repeat center center;
+  background: linear-gradient(
+    0deg,
+    variables.$elevation2 0%,
+    variables.$background-color 50%
+  );
+  color: variables.$text-color;
   border: 1px solid white;
   padding: 1rem;
   min-height: 100vh;
@@ -43,6 +45,14 @@ body {
     overflow: auto;
     border-radius: variables.$border-radius;
     box-shadow: variables.$box-shadow;
+  }
+
+  &.show-background {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      var(--detail-condition-image);
+    background-size: cover;
+    background-position: center;
   }
 }
 

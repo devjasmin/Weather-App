@@ -6,7 +6,6 @@ import { getDayConditions, getHourHTML } from "./24h.js";
 import { getDays } from "./3days.js";
 import { getMiniStats } from "./mini-stats.js";
 import { formatClock } from "./utils.js";
-import { setBackground } from "./utils.js";
 import { getConditionImagePath } from "./conditions.js";
 
 export async function loadDetailView(cityName) {
@@ -17,11 +16,19 @@ export async function loadDetailView(cityName) {
   // event listener registieren
 }
 
-function renderDetailView(isDay) {
+function renderDetailView(weatherData) {
   const { location, current, forecast } = weatherData;
   const currentDay = forecast.forecastday[0];
 
-  setBackground(isDay);
+  const conditionImage = getConditionImagePath(
+    current.condition.code,
+    current.is_day !== 1,
+  );
+
+  if (conditionImage) {
+    rootElement.style = `--detail-condition-image: url(${conditionImage})`;
+    rootElement.classList.add("show-background");
+  }
 
   rootElement.innerHTML =
     getHeaderHTML(

@@ -4,7 +4,6 @@
   backdrop-filter: blur(10px);
   background: rgba (255, 255, 255, 0.2);
   border-radius: variables.$border-radius;
-  padding: 20px;
 }
 
 .today-forecast__condition {
@@ -13,7 +12,8 @@
   justify-content: left;
   padding: 10px;
   border-bottom: variables.$border-bottom;
-  margin-bottom: 10px;
+  border-radius: variables.$border-radius;
+  box-shadow: variables.$box-shadow;
 }
 
 .today-forecast__hour {
@@ -23,15 +23,17 @@
   justify-content: flex-start;
   flex-wrap: nowrap;
   overflow-y: auto;
-  scrollbar-width: thin;
-  padding: 20px;
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+  padding: 30px;
+  border-radius: variables.$border-radius;
+  box-shadow: variables.$box-shadow;
 
   &__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    //padding: 30px;
     border-radius: variables.$border-radius;
   }
 
