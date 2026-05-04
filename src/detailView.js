@@ -17,9 +17,11 @@ export async function loadDetailView(cityName) {
   // event listener registieren
 }
 
-function renderDetailView(weatherData) {
+function renderDetailView(isDay) {
   const { location, current, forecast } = weatherData;
   const currentDay = forecast.forecastday[0];
+
+  setBackground(isDay);
 
   rootElement.innerHTML =
     getHeaderHTML(

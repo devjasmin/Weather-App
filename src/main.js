@@ -3,4 +3,4 @@ import { loadDetailView } from "./detailView.js";
 
 export const rootElement = document.getElementById("weather-app");
 
-loadDetailView("Indien");
+loadDetailView("Bern");
