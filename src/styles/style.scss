@@ -14,15 +14,11 @@
 
 body {
   @include mixins.largeScreens {
-    background:
-      linear-gradient(
-        0deg,
-        variables.$elevation2 0%,
-        variables.$background-color 50%
-      ),
-      url("../assets/images/background-day.jpg") no-repeat center center fixed;
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(
+      0deg,
+      variables.$elevation2 0%,
+      variables.$background-color 50%
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,10 +27,11 @@ body {
 }
 
 #weather-app {
+  background-size: cover;
+  background-position: center;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
+  background: url("/image_day/cloudy_day.jpg") no-repeat center center fixed;
   border: 1px solid white;
-  //background-color: variables.$background-color;
   padding: 1rem;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
@@ -55,11 +52,3 @@ body {
   justify-content: space-between;
   margin: 10px;
 }
-
-// .background-day {
-//   background: linear-gradient(to top, #87ceeb, #ffffff);
-// }
-
-// .background-night {
-//   background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
-// }

@@ -29,14 +29,14 @@ function renderDetailView(weatherData) {
       "H: " + formatTemperature(currentDay.day.maxtemp_c) + "°",
       "T: " + formatTemperature(currentDay.day.mintemp_c) + "°",
     ) +
-    `<div class = "glass-background">
+    `<div class = "today-forecast" glass-background">
     ${getDayConditions(forecast.forecastday)}
     ${getHourHTML(forecast.forecastday)}
     </div>` +
-    `<div class="forecast-days">
+    `<div class = "forecast-days" glass-background>
     ${getDays(forecast.forecastday)}
     </div>` +
-    `<div class ="mini-stats">
+    `<div class ="mini-stats" glass-background>
     ${getMiniStats(forecast.forecastday, current)}`;
 }
 
@@ -57,10 +57,6 @@ function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
         </div>      
     `;
 }
-
-getDayConditions();
-getHeaderHTML();
-getMiniStats();
 
 // const Btnback = document.getElementById("weather-app__return-btn");
 // Btnback.addEventListener("click", () => {
