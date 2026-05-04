@@ -4,12 +4,10 @@
   backdrop-filter: blur(10px);
   background: rgba (255, 255, 255, 0.2);
   border: 1px solid white;
-  border-radius: variables.$border-radius;
   padding: 20px;
 }
 
 .mini-stats {
-  //background-color: variables.$background-color;
   border-radius: variables.$border-radius;
   margin-top: 20px;
   padding: 10px;
@@ -20,13 +18,13 @@
 }
 
 .mini-stats__heading {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   border-radius: variables.$border-radius;
+  box-shadow: variables.$box-shadow;
   margin-top: 1rem;
   font-size: 1rem;
 }
