@@ -1,7 +1,7 @@
 @use "variables";
 
 .main-menu {
-  padding: 20px;
+  padding: 10px;
   width: 380px;
   height: 600px;
 }
@@ -19,18 +19,39 @@
 }
 
 .main-menu__btn-edit {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: variables.$text-color;
   border: none;
   border-radius: 5px;
   background-color: variables.$background-color;
 }
 
 .main-menu__search {
-  padding: 10px;
+  padding: 20px;
   font-size: 1.2rem;
   border: none;
   border-radius: variables.$border-radius;
 }
 
 .main-menu__search-results {
+  border: 1px solid blue;
+  border-radius: variables.$border-radius;
   margin-top: 1rem;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.city_column_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city_column_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

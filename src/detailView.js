@@ -10,7 +10,7 @@ import { getConditionImagePath } from "./conditions.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
-  // daten fetchen
+
   const weatherData = await getForecastWeather(cityName);
   renderDetailView(weatherData); // hier auskommentieren, damit ich nur den Ladespinner sehe
   // event listener registieren
@@ -66,13 +66,3 @@ function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
         </div>      
     `;
 }
-
-// const Btnback = document.getElementById("weather-app__return-btn");
-// Btnback.addEventListener("click", () => {
-//   alert("Zurück zum Hauptmenü");
-// });
-
-// const FavoriteBtn = document.getElementById("weather-app__favorite-btn");
-// FavoriteBtn.addEventListener("click", () => {
-//   alert("Ort zu Favoriten hinzugefügt");
-// });
