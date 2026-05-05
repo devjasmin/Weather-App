@@ -1,0 +1,36 @@
+@use "variables";
+
+.main-menu {
+  padding: 20px;
+  width: 380px;
+  height: 600px;
+}
+
+.main-menu__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-menu__title {
+  font-size: 3rem;
+  color: variables.$text-color;
+}
+
+.main-menu__btn-edit {
+  border: none;
+  border-radius: 5px;
+  background-color: variables.$background-color;
+}
+
+.main-menu__search {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: variables.$border-radius;
+}
+
+.main-menu__search-results {
+  margin-top: 1rem;
+}
