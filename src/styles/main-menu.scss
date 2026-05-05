@@ -14,8 +14,9 @@
 }
 
 .main-menu__title {
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: variables.$text-color;
+  color: black;
 }
 
 .main-menu__btn-edit {
@@ -28,10 +29,23 @@
 }
 
 .main-menu__search {
-  padding: 20px;
+  padding: 10px;
   font-size: 1.2rem;
   border: none;
   border-radius: variables.$border-radius;
+
+  input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: variables.$border-radius;
+    font-size: 1.2rem;
+
+    &::placeholder {
+      color: grey;
+      font-size: 1.2rem;
+    }
+  }
 }
 
 .main-menu__search-results {
