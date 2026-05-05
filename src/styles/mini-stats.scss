@@ -10,7 +10,8 @@
 .mini-stats {
   border-radius: variables.$border-radius;
   margin-top: 20px;
-  padding: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
@@ -22,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: variables.$border-radius;
   box-shadow: variables.$box-shadow;
   margin-top: 1rem;

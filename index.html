@@ -8,12 +8,18 @@
   </head>
   <body>
     <div id="weather-app">
-      <p class="today-forecast__condition"></p>
-      <div class="today-forecast__hours"></div>
-      <div class="forecast-days"></div>
-      <div class="mini-stats"></div>
+      <div class="main-menu">
+        <div class="main-menu__title">
+          Wetter <button class="main-menu__btn-edit">Edit</button>
+        </div>
+        <div class="main-menu__search">
+          <input type="text" placeholder="Gebe einen Ort ein..." />
+        </div>
+        <div class="main-menu__search-results">
+          San Francisco, Bern, New York
+        </div>
+      </div>
     </div>
-
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
