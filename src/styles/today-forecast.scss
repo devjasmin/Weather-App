@@ -17,14 +17,13 @@
 
 .today-forecast__hour {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
   flex-wrap: nowrap;
   overflow-y: auto;
+  width: 90%;
   scrollbar-width: none;
   scrollbar-color: transparent;
-  padding: 30px;
+  padding: 20px;
   border-radius: variables.$border-radius;
   box-shadow: variables.$box-shadow;
 
@@ -39,7 +38,7 @@
   &__hour {
     display: flex;
     flex-direction: column;
-    //align-items: center;
+    align-items: center;
     justify-content: center;
   }
 
@@ -53,5 +52,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 }

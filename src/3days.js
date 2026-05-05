@@ -31,7 +31,7 @@ export function getDays(forecastday) {
         </span>
       
         <span class="forecast-days__wind">
-            Wind: ${days.day.maxwind_kph} km/h
+            Wind bis: ${days.day.maxwind_kph}km/h
           </span>
         </div>
       `;
