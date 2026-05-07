@@ -42,7 +42,7 @@ function renderMenu(weatherData) {
   );
 
   if (conditionImage) {
-    rootElement.style = `--detail-condition-image: url(${conditionImage})`;
+    rootElement.style = `--condition-image: url(${conditionImage})`;
     rootElement.classList.add("show-background");
   }
 
@@ -50,7 +50,7 @@ function renderMenu(weatherData) {
   rootElement.innerHTML = getMenuHTML(location, current, currentDay);
 
   // 5. Suche aktivieren
-  const searchInput = document.querySelector(".main-menu__search input");
+  const searchInput = document.querySelector(".main-menu__search-bar input");
   searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       const cityName = searchInput.value;
@@ -58,6 +58,7 @@ function renderMenu(weatherData) {
     }
   });
 }
+//rendersecondLoadingScreen();
 
 // 5. Die Funktion braucht die Variablen als "Eingabe" (Argumente)
 
@@ -68,20 +69,22 @@ function getMenuHTML(location, current, currentDay) {
           <h1 class="main-menu__title">Wetter</h1>
           <button class="main-menu__btn-edit">Bearbeiten</button>
         </div>
-        <div class="main-menu__search" >
-          <input type="text" placeholder="Bitte gib einen Ort ein..." />
+        <div class="main-menu__search-bar" >
+          <input type="text" class="main-menu__search-input" placeholder="Bitte gib einen Ort ein..." />
                 </div>
-        <div class="main-menu__search-results" >
-          <div class="city_column_left">
-            <p class="city_name">${location.name}</p>
-            <p class="city_country">${location.country}</p>
-            <p class="city_condition">${current.condition.text}</p>
+        <div class="main-menu__cities-list" >
+          <div class="city-wrapper">
+          <div class="city">        
+              <div class="city_column_left">
+                <p class="city_name">${location.name}</p>
+                <p class="city_country">${location.country}</p>
+                <p class="city_condition">${current.condition.text}</p>
+            </div>
+              <div class="city_column_right">
+                <p class="city_temperature">${formatTemperature(current.temp_c)}°</p>
+                <p class="city_min_max_temperature">T: ${formatTemperature(currentDay.day.mintemp_c)}° / H: ${formatTemperature(currentDay.day.maxtemp_c)}°</p>
           </div>
-          <div class="city_column_right">
-            <p class="city_temperature">${formatTemperature(current.temp_c)}°</p>
-            <p class="city_min_max_temperature">${formatTemperature(currentDay.day.mintemp_c)}° / 
-            ${formatTemperature(currentDay.day.maxtemp_c)}°</p>
-          </div>
+          <div>
         </div>
       </div>
     `;

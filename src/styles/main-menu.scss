@@ -1,43 +1,45 @@
 @use "variables";
 
 .main-menu {
-  padding: 10px;
-  width: 380px;
-  height: 600px;
-}
-
-.main-menu__heading {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 
-.main-menu__title {
-  font-size: 3.2rem;
-  color: variables.$text-color;
-  color: black;
-}
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.main-menu__btn-edit {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: variables.$text-color;
-  border: none;
-  border-radius: 5px;
-  background-color: variables.$background-color;
-}
+  &__title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: variables.$text-color;
+    text-shadow: variables.$text-shadow;
+  }
 
-.main-menu__search {
+  &__btn-edit {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: variables.$text-color;
+    border: none;
+    border-radius: variables.$border-radius;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+.main-menu__search-bar {
   padding: 10px;
   font-size: 1.2rem;
   border: none;
   border-radius: variables.$border-radius;
 
   input {
-    padding: 10px;
+    box-sizing: border-box;
+    padding: 0.75rem;
     width: 100%;
-    border: 1px solid blue;
+    border: none;
     border-radius: variables.$border-radius;
     font-size: 1.2rem;
 
@@ -48,24 +50,64 @@
   }
 }
 
-.main-menu__search-results {
-  border: 1px solid blue;
-  border-radius: variables.$border-radius;
-  margin-top: 1rem;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.city_column_left {
+.main-menu__cities-list {
+  border: none;
+  box-shadow: variables.$box-shadow;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+  border-radius: variables.$border-radius;
+}
+
+.city-wrapper {
+}
+
+.city {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  text-shadow: variables.$text-shadow;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    var(--condition-image);
+  background-size: cover;
+  background-position: 50% 25%;
+}
+
+.city_name {
+  font-size: 2rem;
+  font-weight: 400;
+  color: variables.$text-color;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.city_condition {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: variables.$text-color;
+}
+
+.city_temperature {
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: right;
+  color: variables.$text-color;
+}
+
+.city_min_max_temperature {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: variables.$text-color;
 }
 
 .city_column_right {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
 }
