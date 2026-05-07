@@ -8,7 +8,19 @@ export async function getForecastWeather(location, days = 3, hours = 24) {
 
   const weatherData = await response.json();
 
-  console.log(weatherData);
+  //console.log(weatherData);
 
   return weatherData;
+}
+
+export async function searchCities(query) {
+  const response = await fetch(
+    `${API_BASE_URL}/search.json?key=${API_KEY}&q=${query}&lang=de`,
+  );
+
+  const cities = await response.json();
+
+  //console.log(cities);
+
+  return cities;
 }

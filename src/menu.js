@@ -20,6 +20,7 @@ import { formatTemperature } from "./utils.js";
 import { rootElement } from "./main.js";
 import { getConditionImagePath } from "./conditions.js";
 import { loadDetailView } from "./detailView.js";
+//import { searchCities } from "./api.js";
 //import { renderSecondLoadingScreen } from "./second_loadingScreen.js";
 
 export async function loadMenu(cityName) {
@@ -51,13 +52,18 @@ function renderMenu(weatherData) {
 
   // 5. Suche aktivieren
   const searchInput = document.querySelector(".main-menu__search-bar input");
-  searchInput.addEventListener("keydown", (event) => {
+  searchInput.addEventListener("keydown", async (event) => {
     if (event.key === "Enter") {
-      const cityName = searchInput.value;
-      loadDetailView(cityName);
+      const cityName = searchInput.value.trim();
+
+      if (cityName !== "") {
+        //await getForecastWeather(cityName);
+        loadDetailView(cityName);
+      }
     }
   });
 }
+
 //rendersecondLoadingScreen();
 
 // 5. Die Funktion braucht die Variablen als "Eingabe" (Argumente)
