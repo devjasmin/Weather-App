@@ -15,12 +15,12 @@
 // <button class="weather-app__return-btn">Zurück</button>
 // <button class="weather-app__favorite-btn">Favorit</button>
 
-import { getForecastWeather } from "./api.js";
+import { getForecastWeather } from "./API.js";
 import { formatTemperature } from "./utils.js";
 import { rootElement } from "./main.js";
 import { getConditionImagePath } from "./conditions.js";
 import { loadDetailView } from "./detailView.js";
-import { searchCities } from "./api.js";
+import { searchCities } from "./API.js";
 //import { renderSecondLoadingScreen } from "./second_loadingScreen.js";
 
 export async function loadMenu(cityName) {
