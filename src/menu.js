@@ -20,7 +20,7 @@ import { formatTemperature } from "./utils.js";
 import { rootElement } from "./main.js";
 import { getConditionImagePath } from "./conditions.js";
 import { loadDetailView } from "./detailView.js";
-//import { searchCities } from "./api.js";
+import { searchCities } from "./api.js";
 //import { renderSecondLoadingScreen } from "./second_loadingScreen.js";
 
 export async function loadMenu(cityName) {
@@ -52,17 +52,59 @@ function renderMenu(weatherData) {
 
   // 5. Suche aktivieren
   const searchInput = document.querySelector(".main-menu__search-bar input");
-  searchInput.addEventListener("keydown", async (event) => {
-    if (event.key === "Enter") {
-      const cityName = searchInput.value.trim();
+  const resultsBox = document.getElementById("search-results");
 
-      if (cityName !== "") {
-        //await getForecastWeather(cityName);
-        loadDetailView(cityName);
+  searchInput.addEventListener("keydown", async (event) => {
+    const query = searchInput.value.trim();
+
+    if (event.key === "Enter") {
+      if (query !== "") {
+        loadDetailView(query);
       }
+    }
+
+    // Suche erst ab 2 Zeichen auslösen
+    if (query.length >= 2) {
+      const result = await searchCities(query);
+      //console.log("API liefert Ergbenis: ", result);
+
+      if (result && result.length > 0) {
+        // API Antwort herausholen und in der resultsBox anzeigen
+        resultsBox.innerHTML = result
+          .map(
+            (city) =>
+              `<div class="search-results-item">${city.name}, ${city.country}</div>`,
+          )
+          .join("");
+      }
+      resultsBox.querySelectorAll(".search-results-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          loadDetailView(item.textContent);
+        });
+      });
     }
   });
 }
+
+document.addEventListener("click", (event) => {
+  // 1. Wir prüfen, ob der Klick innerhalb der gesamten Such-Sektion war
+  const searchContainer = event.target.closest(".main-menu__search-bar");
+
+  // 2. Wenn der Klick AUSSERHALB war (!searchContainer)
+  if (!searchContainer) {
+    // Wir suchen die Elemente genau jetzt im Dokument
+    const box = document.getElementById("search-results");
+    const input = document.querySelector(".main-menu__search-bar input");
+
+    // 3. Nur wenn die Elemente existieren, leeren wir sie
+    if (box) {
+      box.innerHTML = "";
+    }
+    if (input) {
+      input.value = "";
+    }
+  }
+});
 
 //rendersecondLoadingScreen();
 
@@ -77,7 +119,8 @@ function getMenuHTML(location, current, currentDay) {
         </div>
         <div class="main-menu__search-bar" >
           <input type="text" class="main-menu__search-input" placeholder="Bitte gib einen Ort ein..." />
-                </div>
+            <div id="search-results" class="main-menu__search-results"></div>
+          </div>
         <div class="main-menu__cities-list" >
           <div class="city-wrapper">
           <div class="city">        
