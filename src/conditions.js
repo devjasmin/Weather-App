@@ -3,43 +3,115 @@ export function getConditionImagePath(code, isNight = !1) {
 
   if (!condition) return null;
 
-  return "conditionImages/" + condition[isNight ? "night" : "day"];
+  return "/wetter-app/conditionImages/" + condition[isNight ? "night" : "day"];
 }
 
 const CONDITION_IMAGES = [
-  { code: 1e3, day: "day/sunny.jpg", night: "night/clear.jpg" },
+  {
+    code: 1000,
+    day: "day/sunny.jpg",
+    night: "night/clear.jpg",
+  },
   {
     code: 1003,
     day: "day/partly_cloudy_day.jpg",
     night: "night/partly_cloudy_night.jpg",
   },
-  { code: 1006, day: "day/cloudy_day.jpg", night: "night/cloudy_night.jpg" },
-  { code: 1009, day: "day/cloudy_day.jpg", night: "night/cloudy_night.jpg" },
-  { code: 1030, day: "day/foggy_day.jpg", night: "night/foggy_night.jpg" },
-  { code: 1063, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1066, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1069, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1072, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
+  {
+    code: 1006,
+    day: "day/cloudy_day.jpg",
+    night: "night/cloudy_night.jpg",
+  },
+  {
+    code: 1009,
+    day: "day/cloudy_day.jpg",
+    night: "night/cloudy_night.jpg",
+  },
+  {
+    code: 1030,
+    day: "day/foggy_day.jpg",
+    night: "night/foggy_night.jpg",
+  },
+  {
+    code: 1063,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1066,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1069,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1072,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
   {
     code: 1087,
     day: "day/lightning_day.jpg",
     night: "night/lightning_night.jpg",
   },
-  { code: 1114, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1117, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1135, day: "day/foggy_day.jpg", night: "night/foggy_night.jpg" },
-  { code: 1147, day: "day/foggy_day.jpg", night: "night/foggy_night.jpg" },
-  { code: 1150, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1153, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1168, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
+  {
+    code: 1114,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1117,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1135,
+    day: "day/foggy_day.jpg",
+    night: "night/foggy_night.jpg",
+  },
+  {
+    code: 1147,
+    day: "day/foggy_day.jpg",
+    night: "night/foggy_night.jpg",
+  },
+  {
+    code: 1150,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1153,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1168,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
   {
     code: 1171,
     day: "day/heavy_rain_day.jpg",
     night: "night/heavy_rain_night.jpg",
   },
-  { code: 1180, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1183, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
-  { code: 1186, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
+  {
+    code: 1180,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1183,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
+  {
+    code: 1186,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
   {
     code: 1189,
     day: "day/heavy_rain_day.jpg",
@@ -65,19 +137,51 @@ const CONDITION_IMAGES = [
     day: "day/heavy_rain_day.jpg",
     night: "night/heavy_rain_night.jpg",
   },
-  { code: 1204, day: "day/rain_day.jpg", night: "night/rain_night.jpg" },
+  {
+    code: 1204,
+    day: "day/rain_day.jpg",
+    night: "night/rain_night.jpg",
+  },
   {
     code: 1207,
     day: "day/heavy_rain_day.jpg",
     night: "night/heavy_rain_night.jpg",
   },
-  { code: 1210, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1213, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1216, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1219, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1222, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1225, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
-  { code: 1237, day: "day/ice_pellets.jpg", night: "day/ice_pellets.jpg" },
+  {
+    code: 1210,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1213,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1216,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1219,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1222,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1225,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
+  {
+    code: 1237,
+    day: "day/ice_pellets.jpg",
+    night: "day/ice_pellets.jpg",
+  },
   {
     code: 1240,
     day: "day/heavy_rain_day.jpg",
@@ -103,14 +207,26 @@ const CONDITION_IMAGES = [
     day: "day/heavy_rain_day.jpg",
     night: "night/heavy_rain_night.jpg",
   },
-  { code: 1255, day: "day/snow_day.jpg", night: "night/snow_night.jpg" },
+  {
+    code: 1255,
+    day: "day/snow_day.jpg",
+    night: "night/snow_night.jpg",
+  },
   {
     code: 1258,
     day: "day/heavy_rain_day.jpg",
     night: "night/heavy_rain_night.jpg",
   },
-  { code: 1261, day: "day/ice_pellets.jpg", night: "day/ice_pellets.jpg" },
-  { code: 1264, day: "day/ice_pellets.jpg", night: "day/ice_pellets.jpg" },
+  {
+    code: 1261,
+    day: "day/ice_pellets.jpg",
+    night: "day/ice_pellets.jpg",
+  },
+  {
+    code: 1264,
+    day: "day/ice_pellets.jpg",
+    night: "day/ice_pellets.jpg",
+  },
   {
     code: 1273,
     day: "day/lightning_day.jpg",
