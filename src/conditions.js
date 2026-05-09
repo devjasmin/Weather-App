@@ -3,7 +3,10 @@ export function getConditionImagePath(code, isNight = !1) {
 
   if (!condition) return null;
 
-  return "/Weather-App/conditionImages/" + condition[isNight ? "night" : "day"];
+  const baseURL = import.meta.env.BASE_URL;
+  const imageFile = condition[isNight ? "night" : "day"];
+
+  return `${baseURL}/conditionImages/${imageFile}`;
 }
 
 const CONDITION_IMAGES = [
