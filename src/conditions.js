@@ -3,7 +3,7 @@ export function getConditionImagePath(code, isNight = !1) {
 
   if (!condition) return null;
 
-  return "/wetter-app/conditionImages/" + condition[isNight ? "night" : "day"];
+  return "/Weather-App/conditionImages/" + condition[isNight ? "night" : "day"];
 }
 
 const CONDITION_IMAGES = [
