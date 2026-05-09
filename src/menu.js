@@ -8,20 +8,16 @@
 //   alert("Ort zu Favoriten hinzugefügt");
 // });
 
-// renderSecondLoadingScreen(
-//   "Die Wetterdaten werden für " + cityName + " geladen...",
-// );
-
-// <button class="weather-app__return-btn">Zurück</button>
-// <button class="weather-app__favorite-btn">Favorit</button>
-
 import { getForecastWeather } from "./API.js";
 import { formatTemperature } from "./utils.js";
 import { rootElement } from "./main.js";
 import { getConditionImagePath } from "./conditions.js";
 import { loadDetailView } from "./detailView.js";
 import { searchCities } from "./API.js";
-//import { renderSecondLoadingScreen } from "./second_loadingScreen.js";
+
+function loadingMenuScreen(cityName) {
+  renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
+}
 
 export async function loadMenu(cityName) {
   // 1. Daten von der API holen (warten mit await)
@@ -112,7 +108,7 @@ document.addEventListener("click", (event) => {
 
 function getMenuHTML(location, current, currentDay) {
   return `
-      <div class="main-menu">
+        <div class="main-menu">
         <div class="main-menu__heading">
           <h1 class="main-menu__title">Wetter</h1>
           <button class="main-menu__btn-edit">Bearbeiten</button>
