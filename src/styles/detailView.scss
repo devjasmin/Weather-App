@@ -6,11 +6,11 @@
   padding: 10px;
 }
 .weather-app__return-btn {
-  padding: 10px;
   border: none;
   border-radius: variables.$border-radius;
   background-color: transparent;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 

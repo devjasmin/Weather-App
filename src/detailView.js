@@ -7,13 +7,13 @@ import { getDays } from "./3days.js";
 import { getMiniStats } from "./mini-stats.js";
 import { formatClock } from "./utils.js";
 import { getConditionImagePath } from "./conditions.js";
+import { loadMenu } from "./menu.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
 
   const weatherData = await getForecastWeather(cityName);
   renderDetailView(weatherData); // hier auskommentieren, damit ich nur den Ladespinner sehe
-  // event listener registieren
 }
 
 function renderDetailView(weatherData) {
@@ -47,17 +47,28 @@ function renderDetailView(weatherData) {
     </div>` +
     `<div class ="mini-stats" glass-background>
     ${getMiniStats(forecast.forecastday, current)}`;
+
+  const Btnback = document.querySelector(".weather-app__return-btn");
+  if (Btnback) {
+    Btnback.addEventListener("click", () => {
+      rootElement.classList.remove("show-background");
+      rootElement.style = "";
+      loadMenu("Oslo");
+    });
+  }
 }
 
 function getHeaderHTML(location, currentTemp, condition, maxTemp, minTemp) {
-  return `           
-      <div class="weather-app__main">
-        <div class="weather-app__place-name" >${location}</div>
-        <div class="weather-app__place-temperature" >${currentTemp}</div>
-        <div class="weather-app__place-condition">${condition}</div>
-        <div class="weather-app__temperature-container">
-        <div class="weather-app__place-max-temperature">${maxTemp}</div>
-        <div class="weather-app__place-min-temperature">${minTemp}</div>
+  return `
+      <div class="weather-app__header">
+      <button class="weather-app__return-btn">←</button></div>
+        <div class="weather-app__main">
+          <div class="weather-app__place-name" >${location}</div>
+          <div class="weather-app__place-temperature" >${currentTemp}</div>
+          <div class="weather-app__place-condition">${condition}</div>
+          <div class="weather-app__temperature-container">
+          <div class="weather-app__place-max-temperature">${maxTemp}</div>
+          <div class="weather-app__place-min-temperature">${minTemp}</div>
         </div>
         </div>      
     `;
