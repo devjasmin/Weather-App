@@ -6,7 +6,7 @@
   padding: 20px;
 
   .weather-app__return-btn {
-    width: 2.5rem;
+    width: 2rem;
     border: none;
     border-radius: variables.$border-radius;
     background-color: transparent;
@@ -15,11 +15,12 @@
   }
 
   .weather-app__favorite-btn {
-    width: 2.5rem;
+    width: 2rem;
     border: none;
     border-radius: variables.$border-radius;
     background-color: transparent;
     cursor: pointer;
+    filter: drop-shadow(variables.$text-shadow);
   }
 }
 
