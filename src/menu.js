@@ -1,13 +1,3 @@
-// const Btnback = document.getElementById("weather-app__return-btn");
-// Btnback.addEventListener("click", () => {
-//   alert("Zurück zum Hauptmenü");
-// });
-
-// const FavoriteBtn = document.getElementById("weather-app__favorite-btn");
-// FavoriteBtn.addEventListener("click", () => {
-//   alert("Ort zu Favoriten hinzugefügt");
-// });
-
 import { getForecastWeather } from "./API.js";
 import { formatTemperature } from "./utils.js";
 import { rootElement } from "./main.js";
@@ -102,9 +92,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
-//rendersecondLoadingScreen();
-
-// 5. Die Funktion braucht die Variablen als "Eingabe" (Argumente)
+// 7. Die Funktion braucht die Variablen als "Eingabe" (Argumente)
 
 function getMenuHTML(location, current, currentDay) {
   return `
