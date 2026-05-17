@@ -127,7 +127,7 @@ function getCities(cities) {
     ${formatTemperature(city.current.temp_c)}°
     </p>
     <p class="city_min_max_temperature">
-    : ${formatTemperature(city.currentDay.day.mintemp_c)}°
+    T: ${formatTemperature(city.currentDay.day.mintemp_c)}°
     / H: ${formatTemperature(city.currentDay.day.maxtemp_c)}°
     </p>
     </div>

@@ -61,6 +61,7 @@ function registerEventListeners(city) {
       rootElement.classList.remove("show-background");
       rootElement.style = "";
       loadMenu(city);
+      alert(city + "Stadt wurde unten aufgeführt!");
       console.log("Stadt wurde unten aufgeführt! Zurück zu", city);
     });
   }
@@ -69,6 +70,7 @@ function registerEventListeners(city) {
   if (favoriteButton) {
     favoriteButton.addEventListener("click", () => {
       saveCityAsFavorite(city);
+      alert(city + "wurden den Favoriten hinzugfügt!");
       console.log("Zu den Favoriten hinzufügen", city);
     });
   }
