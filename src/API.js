@@ -36,9 +36,9 @@ export function saveCityAsFavorite(city) {
   if (favorites.find((favorite) => favorite === city)) {
     alert(city + "wurde bereits zu den Favoriten hinzugefügt");
     return;
-
-    favorites.push(city);
-
-    localStorage.setItem(FAVORIT_CITIES_KEY, JSON.stringify(favorites));
   }
+
+  favorites.push(city);
+
+  localStorage.setItem(FAVORIT_CITIES_KEY, JSON.stringify(favorites));
 }

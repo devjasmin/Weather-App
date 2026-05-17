@@ -8,9 +8,9 @@ import { getMiniStats } from "./mini-stats.js";
 import { formatClock } from "./utils.js";
 import { getConditionImagePath } from "./conditions.js";
 import { loadMenu } from "./menu.js";
-import { getFavoriteCities } from "./API.js";
+// import { getFavoriteCities } from "./API.js";
 import { saveCityAsFavorite } from "./API.js";
-import { setCurrentCity } from "./state.js";
+// import { setCurrentCity } from "./state.js";
 
 export async function loadDetailView(cityName) {
   renderLoadingScreen("Die Wetterdaten werden für " + cityName + " geladen...");
@@ -18,7 +18,6 @@ export async function loadDetailView(cityName) {
   const weatherData = await getForecastWeather(cityName);
   renderDetailView(weatherData); // hier auskommentieren, damit ich nur den Ladespinner sehe
   registerEventListeners(cityName);
-  setCurrentCity(cityName);
 }
 
 function renderDetailView(weatherData) {
@@ -62,8 +61,7 @@ function registerEventListeners(city) {
       rootElement.classList.remove("show-background");
       rootElement.style = "";
       loadMenu(city);
-      alert("Stadt wurde unten aufgeführt!");
-      console.log("Zurück zu", city);
+      console.log("Stadt wurde unten aufgeführt! Zurück zu", city);
     });
   }
 
@@ -71,14 +69,13 @@ function registerEventListeners(city) {
   if (favoriteButton) {
     favoriteButton.addEventListener("click", () => {
       saveCityAsFavorite(city);
-      alert("Zu den Favoriten hinzufügen!");
-      console.log("Favorit", city);
+      console.log("Zu den Favoriten hinzufügen", city);
     });
   }
 }
 
 function getActionsBarHTML(showFavoritesButton = true) {
-  const backIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  const backIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"    stroke="currentColor" class="size-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
     </svg>
         `;
